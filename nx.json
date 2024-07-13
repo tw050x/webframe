@@ -1,0 +1,115 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "master",
+  "generators": {
+    "@nx/react": {
+      "application": {
+        "bundler": "webpack",
+        "linter": "eslint",
+        "style": "@emotion/styled"
+      },
+      "component": {
+        "style": "@emotion/styled"
+      },
+      "library": {
+        "linter": "eslint",
+        "style": "@emotion/styled",
+        "unitTestRunner": "jest"
+      }
+    }
+  },
+  "namedInputs": {
+    "environment-files": [
+      "{workspaceRoot}/.env",
+      "{workspaceRoot}/.env.local"
+    ],
+    "project-build-files": [
+      "environment-files",
+      "project-files",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.js",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/test-setup.[jt]s",
+      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/tsconfig.storybook.json"
+    ],
+    "project-files": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "@nx/eslint:lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js"
+      ]
+    },
+    "@nx/jest:jest": {
+      "cache": true,
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      },
+      "inputs": [
+        "project-files",
+        "^project-files",
+        "{workspaceRoot}/jest.preset.js"
+      ],
+      "options": {
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "project-build-files",
+        "^project-build-files"
+      ]
+    },
+    "build-storybook": {
+      "cache": true,
+      "inputs": [
+        "project-files",
+        "^project-files",
+        "{projectRoot}/.storybook/**/*",
+        "{projectRoot}/tsconfig.storybook.json"
+      ]
+    },
+    "lint": {
+      "inputs": [
+        "project-files",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js"
+      ]
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
+      },
+      "runner": "nx/tasks-runners/default"
+    }
+  },
+  "useInferencePlugins": false
+}

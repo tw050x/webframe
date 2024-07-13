@@ -1,0 +1,16 @@
+{
+  "author": {
+    "email": "rich.kielty@gmail.com",
+    "name": "Richard Kielty",
+    "url": "https://github.com/tw050x"
+  },
+  "bugs": {
+    "url": "https://github.com/tw050x/webframe/issues"
+  },
+  "description": "A typesafe utility component for React context providers",
+  "name": "@webframe/react-providers",
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "version": "1.0.0"
+}

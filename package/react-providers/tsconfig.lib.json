@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "../../dist/out-tsc",
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "./helper/__mocks__/**/*.ts",
+    "./jest.config.ts",
+    "./**/*.spec.ts",
+    "./**/*.test.ts"
+  ],
+  "extends": "./tsconfig.json",
+  "files": [],
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./index.ts"
+  ]
+}
