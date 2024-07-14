@@ -51,6 +51,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: artifacts
+        path: artifact/
     - name: Install Dependencies
       run: yarn install --immutable
     - name: Run Release Dry Run
