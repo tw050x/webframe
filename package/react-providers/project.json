@@ -1,0 +1,34 @@
+{
+  "name": "package/react-providers",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "package/react-providers",
+  "tags": [],
+  "targets": {
+    "build-library": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "assets": ["package/react-providers/*.md"],
+        "main": "package/react-providers/index.ts",
+        "outputPath": "artifact/package/react-providers",
+        "tsConfig": "package/react-providers/tsconfig.lib.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "unit-test": {
+      "configurations": {
+        "serve-coverage": {
+          "codeCoverage": true
+        }
+      },
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "package/react-providers/jest.config.ts"
+      },
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"]
+    }
+  }
+}

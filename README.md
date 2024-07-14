@@ -11,3 +11,7 @@ yarn install
 ```
 
 > This repo uses yarn as the package manager. If you wish to contribute then you will alos need to use yarn
+
+## Repository Structure
+
+The repository uses nx to manage multiple projects. You will find all the published packages in the `packages` directory.
