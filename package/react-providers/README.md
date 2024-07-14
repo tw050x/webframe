@@ -50,4 +50,12 @@ const providers = [
 
 The `createProviderWithProps` helper returns an object of the correct structure for the `<Providers />` component. It also typechecks the provider component and the props passed to it.
 
+You can then pass the providers array to the `<Providers />` component to wrap the component tree with the providers.
+
+```tsx
+<Providers providers={providers}>
+  <Component />
+</Providers>
+```
+
 Components are wrapped in order with the first in the list being the outermost provider.
