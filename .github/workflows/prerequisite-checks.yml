@@ -1,6 +1,7 @@
-name: Post Merge Checks
+name: Prerequisite Checks
 
 on:
+  pull_request:
   push:
     branches:
       - master
