@@ -6,53 +6,29 @@ on:
       - master
 
 jobs:
-  install-dependencies:
+  linting:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: yarn install --immutable
-    - name: Archive Dependencies
-      uses: actions/upload-artifact@v2
-      with:
-        name: node_modules
-        path: node_modules/
-    
-  linting:
-    needs: [install-dependencies]
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Download Dependencies
-      uses: actions/download-artifact@v2
-      with:
-        name: node_modules
-        path: node_modules/
     - name: Run Linting
       run: node_modules/.bin/nx run-many --parallel 4 --targets lint
     
   unit-tests:
-    needs: [install-dependencies]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Download Dependencies
-      uses: actions/download-artifact@v2
-      with:
-        name: node_modules
-        path: node_modules/
+    - name: Install Dependencies
+      run: yarn install --immutable
     - name: Run Unit Tests
       run: node_modules/.bin/nx run-many --parallel 4 --targets unit-test
     
   build-library:
-    needs: [install-dependencies]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Download Dependencies
-      uses: actions/download-artifact@v2
-      with:
-        name: node_modules
-        path: node_modules/
+    - name: Install Dependencies
+      run: yarn install --immutable
     - name: Run Builds
       run: node_modules/.bin/nx run-many --configuration production --parallel 4 --targets build-library
