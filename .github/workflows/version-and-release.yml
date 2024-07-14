@@ -5,6 +5,12 @@ on:
 
 jobs:
   version:
+    permissions:
+      contents: write
+      discussions: write
+      issues: write
+      packages: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -16,6 +22,6 @@ jobs:
       run: yarn install --immutable
     - env:
         CI: true
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       name: Run Versioning
       run: node_modules/.bin/nx version
