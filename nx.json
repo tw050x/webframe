@@ -28,6 +28,7 @@
     "version": {
       "generatorOptions": {
         "currentVersionResolver": "git-tag",
+        "fallbackVersion": "0.0.0",
         "packageRoot": "artifact/package/{projectName}",
         "specifierSource": "conventional-commits"
       }
