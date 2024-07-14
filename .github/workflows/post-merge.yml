@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.8.1'
     - name: Install Dependencies
       run: yarn install --immutable
     - name: Run Linting
@@ -19,6 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.8.1'
     - name: Install Dependencies
       run: yarn install --immutable
     - name: Run Unit Tests
@@ -28,6 +36,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.8.1'
     - name: Install Dependencies
       run: yarn install --immutable
     - name: Run Builds
