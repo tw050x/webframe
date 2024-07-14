@@ -11,11 +11,19 @@
   "devDependencies": {
     "react": "^16.8.0"
   },
+  "homepage": "https://github.com/tw050x/webframe",
   "license": "MIT",
   "main": "index.js",
   "name": "@webframe/react-providers",
   "peerDependencies": {
     "react": "^16.8.0"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw050x/webframe.git"
   },
   "types": "index.d.ts",
   "version": "0.0.0"
