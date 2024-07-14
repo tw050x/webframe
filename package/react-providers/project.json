@@ -1,11 +1,11 @@
 {
-  "name": "package/react-providers",
+  "name": "react-providers",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "package/react-providers",
   "tags": [],
   "targets": {
-    "build-library": {
+    "build-package": {
       "configurations": {
         "production": {
           "minify": true

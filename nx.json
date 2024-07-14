@@ -19,10 +19,7 @@
     }
   },
   "namedInputs": {
-    "environment-files": [
-      "{workspaceRoot}/.env",
-      "{workspaceRoot}/.env.local"
-    ],
+    "environment-files": ["{workspaceRoot}/.env", "{workspaceRoot}/.env.local"],
     "project-build-files": [
       "environment-files",
       "project-files",
@@ -33,15 +30,25 @@
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s",
-      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-      "!{projectRoot}/.storybook/**/*",
-      "!{projectRoot}/tsconfig.storybook.json"
+      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)"
     ],
-    "project-files": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "project-files": ["{projectRoot}/**/*", "sharedGlobals"],
     "sharedGlobals": []
+  },
+  "release": {
+    "changelog": {
+      "projectChangelogs": {
+        "createRelease": "github"
+      }
+    },
+    "projectsRelationship": "independent",
+    "version": {
+      "generatorOptions": {
+        "currentVersionResolver": "git-tag",
+        "packageRoot": "artifact/package/{projectName}",
+        "specifierSource": "conventional-commits"
+      }
+    }
   },
   "targetDefaults": {
     "@nx/eslint:lint": {
@@ -49,8 +56,7 @@
       "inputs": [
         "default",
         "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore",
-        "{workspaceRoot}/eslint.config.js"
+        "{workspaceRoot}/.eslintignore"
       ]
     },
     "@nx/jest:jest": {
@@ -61,52 +67,27 @@
           "codeCoverage": true
         }
       },
-      "inputs": [
-        "project-files",
-        "^project-files",
-        "{workspaceRoot}/jest.preset.js"
-      ],
+      "inputs": ["project-files", "^project-files"],
       "options": {
         "passWithNoTests": true
       }
     },
-    "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "project-build-files",
-        "^project-build-files"
-      ]
-    },
-    "build-storybook": {
-      "cache": true,
-      "inputs": [
-        "project-files",
-        "^project-files",
-        "{projectRoot}/.storybook/**/*",
-        "{projectRoot}/tsconfig.storybook.json"
-      ]
+    "build-package": {
+      "dependsOn": ["^build"],
+      "inputs": ["project-build-files", "^project-build-files"]
     },
     "lint": {
       "inputs": [
         "project-files",
         "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore",
-        "{workspaceRoot}/eslint.config.js"
+        "{workspaceRoot}/.eslintignore"
       ]
     }
   },
   "tasksRunnerOptions": {
     "default": {
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e",
-          "build-storybook"
-        ]
+        "cacheableOperations": ["build-package", "lint", "unit-test"]
       },
       "runner": "nx/tasks-runners/default"
     }
