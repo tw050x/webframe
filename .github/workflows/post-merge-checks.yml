@@ -55,7 +55,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --immutable
     - name: Run Release Dry Run
-      run: node_modules/.bin/nx release --dry-run
+      run: node_modules/.bin/nx release --dry-run --first-release
     
   unit-tests:
     runs-on: ubuntu-latest
