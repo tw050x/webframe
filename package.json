@@ -61,9 +61,9 @@
     "url": "https://github.com/tw050x/webframe"
   },
   "scripts": {
+    "reset": "./script/reset.sh",
     "postinstall": "./script/postinstall.sh",
     "preinstall": "./script/preinstall.sh",
     "prepare": "husky"
-  },
-  "version": "1.0.0"
+  }
 }

@@ -7,11 +7,16 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@webframe/react-providers": ["package/react-providers"],
+      "@webframe/react-providers": [
+        "package/react-providers"
+      ]
     },
     "rootDir": ".",
     "skipDefaultLibCheck": true,
@@ -21,12 +26,15 @@
     "target": "es2015"
   },
   "exclude": [
+    ".github",
+    ".husky",
     ".nx",
     ".vscode",
     ".yarn",
     "artifact/",
     "coverage/",
     "node_modules/",
+    "script/",
     "tmp/"
   ]
 }

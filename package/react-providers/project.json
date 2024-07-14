@@ -1,5 +1,5 @@
 {
-  "name": "react-providers",
+  "name": "@webframe/react-providers",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "package/react-providers",
@@ -22,7 +22,7 @@
         ],
         "declarationRootDir": "package/react-providers",
         "main": "package/react-providers/index.ts",
-        "outputPath": "artifact/package/react-providers",
+        "outputPath": "artifact/package/@webframe/react-providers",
         "tsConfig": "package/react-providers/tsconfig.lib.json"
       },
       "outputs": ["{options.outputPath}"]
