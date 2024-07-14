@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  prerequisites:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,4 +14,4 @@ jobs:
     - name: Install Dependencies
       run: yarn install
     - name: Run Unit Tests
-      run: nx run-many --parallel 4 --targets unit-test
+      run: node_modules/.bin/nx run-many --parallel 4 --targets unit-test
