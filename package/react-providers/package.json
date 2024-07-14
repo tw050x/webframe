@@ -8,9 +8,11 @@
     "url": "https://github.com/tw050x/webframe/issues"
   },
   "description": "A typesafe utility component for React context providers",
+  "main": "index.js",
   "name": "@webframe/react-providers",
   "peerDependencies": {
     "react": "^16.8.0"
   },
+  "types": "index.d.ts",
   "version": "1.0.0"
 }

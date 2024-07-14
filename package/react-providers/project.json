@@ -6,9 +6,21 @@
   "tags": [],
   "targets": {
     "build-library": {
-      "executor": "@nx/js:tsc",
+      "configurations": {
+        "production": {
+          "minify": true
+        }
+      },
+      "executor": "@nx/esbuild:esbuild",
       "options": {
-        "assets": ["package/react-providers/*.md"],
+        "assets": [
+          {
+            "glob": "README.md",
+            "input": "package/react-providers",
+            "output": "."
+          }
+        ],
+        "declarationRootDir": "package/react-providers",
         "main": "package/react-providers/index.ts",
         "outputPath": "artifact/package/react-providers",
         "tsConfig": "package/react-providers/tsconfig.lib.json"

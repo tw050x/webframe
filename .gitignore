@@ -1,11 +1,14 @@
 
+# Artifacts directories
+artifact/
+
+# Node directories
+node_modules/
+
 # NX directories and files
 .nx/installation
 .nx/cache
 .nx/workspace-data
-
-# NX directories
-node_modules/
 
 # Testing & Coverage
 coverage/

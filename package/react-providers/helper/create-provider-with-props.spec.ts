@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren } from "react";
+import { FunctionComponent } from "react";
 import { default as createProviderWithProps } from "./create-provider-with-props";
 
 describe("createProviderWithProps()", () => {
@@ -14,7 +14,7 @@ describe("createProviderWithProps()", () => {
   });
 
   it("should return an object with the given component and props", () => {
-    type Props = { handler: (value: any) => void };
+    type Props = { handler: (value: unknown) => void };
     const Component: FunctionComponent<Props> = function DummyComponent() {
       return null;
     };
