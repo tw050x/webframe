@@ -4,13 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  version:
-    permissions:
-      contents: write
-      discussions: write
-      issues: write
-      packages: write
-      pull-requests: write
+  build-package:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -20,9 +14,52 @@ jobs:
         node-version: '20.8.1'
     - name: Install Dependencies
       run: yarn install --immutable
+    - name: Run Builds
+      run: node_modules/.bin/nx run-many --configuration production --parallel 4 --targets build-package
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: artifacts
+        path: artifact/
+
+  release-dry-run:
+    needs: build-package
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.8.1'
+    - name: Download Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: artifacts
+        path: artifact/
+    - name: Install Dependencies
+      run: yarn install --immutable
     - env:
         CI: true
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-      name: Run Versioning
-      run: node_modules/.bin/nx run-many --target version
+      name: Run Release Dry Run
+      run: node_modules/.bin/nx release --first-release
+
+  # version:
+  #   permissions:
+  #     contents: write
+  #     discussions: write
+  #     issues: write
+  #     packages: write
+  #     pull-requests: write
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - name: Setup Node.js
+  #     uses: actions/setup-node@v4
+  #     with:
+  #       node-version: '20.8.1'
+  #   - name: Install Dependencies
+  #     run: yarn install --immutable
+  #     name: Run Versioning
+  #     run: node_modules/.bin/nx run-many --target version
