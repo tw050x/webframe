@@ -22,7 +22,7 @@ jobs:
         name: artifacts
         path: artifact/
 
-  release-dry-run:
+  release:
     needs: build-package
     runs-on: ubuntu-latest
     steps:

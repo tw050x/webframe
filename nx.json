@@ -24,6 +24,53 @@
         "createRelease": "github"
       }
     },
+    "conventionalCommits": {
+      "types": {
+        "feat": {
+          "description": "A new feature",
+          "semverBump": "minor"
+        },
+        "fix": {
+          "description": "A bug fix",
+          "semverBump": "patch"
+        },
+        "perf": {
+          "description": "A code change that improves performance",
+          "semverBump": "minor"
+        },
+        "refactor": {
+          "description": "A code change that neither fixes a bug nor adds a feature",
+          "semverBump": "minor"
+        },
+        "style": {
+          "description": "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)",
+          "semverBump": "minor"
+        },
+        "test": {
+          "changelog": false,
+          "description": "Adding missing tests or correcting existing tests",
+          "semverBump": "patch"
+        },
+        "build": {
+          "description": "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)",
+          "semverBump": "minor"
+        },
+        "ci": {
+          "changelog": false,
+          "description": "Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)",
+          "semverBump": "none"
+        },
+        "chore": {
+          "changelog": false,
+          "description": "Other changes that don't modify src or test files",
+          "semverBump": "none"
+        },
+        "revert": {
+          "description": "Reverts a previous commit",
+          "semverBump": "minor"
+        }
+      }
+    },
     "projectsRelationship": "independent",
     "version": {
       "generatorOptions": {
