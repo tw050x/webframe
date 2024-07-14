@@ -8,8 +8,8 @@
   },
   "exclude": [
     "./jest.config.ts",
-    "./**/*.spec.ts",
-    "./**/*.test.ts"
+    "./**/*.spec.tsx",
+    "./**/*.typechecks.ts"
   ],
   "extends": "./tsconfig.json",
   "files": [],
