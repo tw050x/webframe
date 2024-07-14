@@ -44,22 +44,3 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       name: Run Release Dry Run
       run: node_modules/.bin/nx release --first-release
-
-  # version:
-  #   permissions:
-  #     contents: write
-  #     discussions: write
-  #     issues: write
-  #     packages: write
-  #     pull-requests: write
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v4
-  #   - name: Setup Node.js
-  #     uses: actions/setup-node@v4
-  #     with:
-  #       node-version: '20.8.1'
-  #   - name: Install Dependencies
-  #     run: yarn install --immutable
-  #     name: Run Versioning
-  #     run: node_modules/.bin/nx run-many --target version
