@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsWithChildren, ReactNode } from "react";
-import { default as createProviderWithProps } from "../helper/create-provider-with-props";
+import { default as createProvider } from "../helper/create-provider";
 
-export type ProvidersProp = Array<ReturnType<typeof createProviderWithProps>>;
+export type ProvidersProp = Array<ReturnType<typeof createProvider>>;
 
 export interface ProvidersProps {
   children?: ReactNode;
@@ -14,7 +14,7 @@ export interface ProvidersProps {
  * @example
  * You can wrap the App component with an array of providers
  * ```typescript
- * const providers: Array<ReturnType<typeof createProviderWithProps>> = [
+ * const providers: Array<ReturnType<typeof createProvider>> = [
  *  createComponentWithProps(DataProvider),
  *  createComponentWithProps(LoggerProvider, { handler: console.info }),
  * ]

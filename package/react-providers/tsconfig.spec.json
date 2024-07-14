@@ -12,8 +12,8 @@
   "include": [
     "./jest.config.ts",
     "./**/__mocks__/**/*.ts",
-    "./**/*.test.ts",
     "./**/*.spec.ts",
+    "./**/*.spec.tsx",
     "./**/*.d.ts"
   ]
 }

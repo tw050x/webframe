@@ -1,15 +1,14 @@
 import { FunctionComponent } from "react";
-import { default as createProviderWithProps } from "./create-provider-with-props";
+import { default as createProvider } from "./create-provider";
 
-describe("createProviderWithProps()", () => {
+describe("createProvider()", () => {
   it("should return an object with the given component", () => {
     const Component: FunctionComponent = () => {
       return null;
     };
 
-    expect(createProviderWithProps(Component)).toEqual({
+    expect(createProvider(Component)).toEqual({
       Component,
-      props: {},
     });
   });
 
@@ -20,7 +19,7 @@ describe("createProviderWithProps()", () => {
     };
     const props = { handler: console.log };
 
-    expect(createProviderWithProps(Component, props)).toEqual({
+    expect(createProvider(Component, props)).toEqual({
       Component,
       props,
     });
