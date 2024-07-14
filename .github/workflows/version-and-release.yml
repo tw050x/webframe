@@ -16,6 +16,6 @@ jobs:
       run: yarn install --immutable
     - env:
         CI: true
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       name: Run Versioning
       run: node_modules/.bin/nx version
