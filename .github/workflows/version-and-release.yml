@@ -15,6 +15,8 @@ jobs:
     - name: Install Dependencies
       run: yarn install --immutable
     - env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       name: Run Versioning
       run: node_modules/.bin/nx version
