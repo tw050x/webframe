@@ -65,5 +65,8 @@
     "postinstall": "./script/postinstall.sh",
     "preinstall": "./script/preinstall.sh",
     "prepare": "husky"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
