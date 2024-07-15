@@ -55,4 +55,4 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
         NPM_CONFIG_PROVENANCE: true
       name: Run Release
-      run: node_modules/.bin/nx release -y
+      run: node_modules/.bin/nx release --verbose -y
