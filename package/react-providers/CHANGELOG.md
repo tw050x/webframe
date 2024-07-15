@@ -1,3 +1,15 @@
+## 0.7.0 (2024-07-15)
+
+
+### 💅 Refactors
+
+- update docs with correct names ([c159f96](https://github.com/tw050x/webframe/commit/c159f96))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.6.0 (2024-07-15)
 
 
