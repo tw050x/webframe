@@ -1,3 +1,15 @@
+## 0.6.0 (2024-07-15)
+
+
+### 💅 Refactors
+
+- another refactor ([5ddb496](https://github.com/tw050x/webframe/commit/5ddb496))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.5.0 (2024-07-15)
 
 
