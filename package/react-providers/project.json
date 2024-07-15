@@ -30,6 +30,16 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "artifact/package/@webframe/react-providers"
+      }
+    },
+    "nx-release-version": {
+      "options": {
+        "packageRoot": "artifact/package/@webframe/react-providers"
+      }
+    },
     "unit-test": {
       "configurations": {
         "serve-coverage": {

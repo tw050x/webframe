@@ -1,4 +1,4 @@
-name: Prerequisite Checks
+name: Prerequisites
 
 on:
   pull_request:
@@ -7,19 +7,23 @@ on:
       - master
 
 jobs:
-    
   build-package:
     runs-on: ubuntu-latest
     steps:
+
     - uses: actions/checkout@v4
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20.8.1'
+
     - name: Install Dependencies
       run: yarn install --immutable
+
     - name: Run Builds
       run: node_modules/.bin/nx run-many --configuration production --parallel 4 --targets build-package
+
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -29,46 +33,59 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
+
     - uses: actions/checkout@v4
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20.8.1'
+
     - name: Install Dependencies
       run: yarn install --immutable
+
     - name: Run Linting
       run: node_modules/.bin/nx run-many --parallel 4 --targets lint
 
-  release-dry-run:
+  publish-dry-run:
     needs: build-package
     runs-on: ubuntu-latest
     steps:
+
     - uses: actions/checkout@v4
       with:
         fetch-depth: '0'
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20.8.1'
+
     - name: Download Artifacts
       uses: actions/download-artifact@v4
       with:
         name: artifacts
         path: artifact/
+
     - name: Install Dependencies
       run: yarn install --immutable
-    - name: Run Release Dry Run
+
+    - name: Run Publish Dry Run
       run: node_modules/.bin/nx release --dry-run
     
   unit-tests:
     runs-on: ubuntu-latest
     steps:
+
     - uses: actions/checkout@v4
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20.8.1'
+
     - name: Install Dependencies
       run: yarn install --immutable
+      
     - name: Run Unit Tests
       run: node_modules/.bin/nx run-many --parallel 4 --targets unit-test
