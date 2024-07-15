@@ -1,3 +1,15 @@
+## 0.2.0 (2024-07-15)
+
+
+### 💅 Refactors
+
+- add publish flags, add provenance envrionment variable, remove --first-release flag ([c1eed27](https://github.com/tw050x/webframe/commit/c1eed27))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.1.0 (2024-07-14)
 
 
