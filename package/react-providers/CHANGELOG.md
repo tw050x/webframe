@@ -1,3 +1,15 @@
+## 0.4.0 (2024-07-15)
+
+
+### 💅 Refactors
+
+- remove export for types that do not need to be exported ([8c92c1c](https://github.com/tw050x/webframe/commit/8c92c1c))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.3.0 (2024-07-15)
 
 
