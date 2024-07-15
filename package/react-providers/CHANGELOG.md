@@ -1,3 +1,15 @@
+## 0.5.0 (2024-07-15)
+
+
+### 💅 Refactors
+
+- update version release workflow ([0e9da1d](https://github.com/tw050x/webframe/commit/0e9da1d))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.4.0 (2024-07-15)
 
 
