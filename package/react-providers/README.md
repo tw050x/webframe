@@ -59,3 +59,7 @@ You can then pass the providers array to the `<Providers />` component to wrap t
 ```
 
 Components are wrapped in order with the first in the list being the outermost provider.
+
+## Why?
+
+Often when working with react, you need to wrap a component tree with providers. This can be cumbersome and error-prone as the provider components require the `children` prop to be populated. Developers will often use comments to ignore the errors or live with heavy indentation. This package provides a simple way to wrap a component tree with providers in a typesafe way without the need for workarounds.
