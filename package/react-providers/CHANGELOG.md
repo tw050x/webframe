@@ -1,3 +1,15 @@
+## 0.3.0 (2024-07-15)
+
+
+### 💅 Refactors
+
+- change tsconfig and documentation for @webframe/react-providers ([ec7043a](https://github.com/tw050x/webframe/commit/ec7043a))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.2.0 (2024-07-15)
 
 
