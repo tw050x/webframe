@@ -1,9 +1,9 @@
 import { FunctionComponent, PropsWithChildren, ReactNode } from "react";
 import { default as createProvider } from "../helper/create-provider";
 
-export type ProvidersProp = Array<ReturnType<typeof createProvider>>;
+type ProvidersProp = Array<ReturnType<typeof createProvider>>;
 
-export interface ProvidersProps {
+interface ProvidersProps {
   children?: ReactNode;
   providers: ProvidersProp;
 }
