@@ -52,14 +52,7 @@ jobs:
         git config --global user.name "Richard Kielty"
     - env:
         CI: true
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PUBLISH_WORKFLOW_TOKEN }}
       name: Run Release
       run: node_modules/.bin/nx release --skip-publish --verbose
       shell: bash
-    - name: Trigger Another Workflow
-      uses: benc-uk/workflow-dispatch@v1
-      with:
-        token: ${{ secrets.PUBLISH_WORKFLOW_TOKEN }}
-        workflow: "Publish"
-        repo: ${{ github.repository }}
-        ref: ${{ github.ref }}

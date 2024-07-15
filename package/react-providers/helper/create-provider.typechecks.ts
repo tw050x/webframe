@@ -8,7 +8,7 @@ const ComponentOne: FunctionComponent<{ number: 1 }> = () => {
 // @ts-expect-error - should throw due to prop mismatch
 createProvider(ComponentOne, { string: "test" });
 
-// - should
+// - should not throw any errors
 createProvider(ComponentOne, { number: 1 });
 
 // @ts-expect-error - should throw due to missing props
@@ -27,17 +27,17 @@ createProvider(ComponentTwo, { string: "test" });
 // @ts-expect-error - should throw due to prop mismatch
 createProvider(ComponentTwo, { number: 1 });
 
-//
+// - should not throw any errors
 createProvider(ComponentTwo, {});
 
-//
+// - should not throw any errors
 createProvider(ComponentTwo);
 
 const ComponentThree = ({ string }: { string: "test" }) => {
   return string;
 };
 
-//
+// - should not throw any errors
 createProvider(ComponentThree, { string: "test" });
 
 // @ts-expect-error - should throw due to prop mismatch
@@ -59,10 +59,10 @@ createProvider(ComponentFour, { string: "test" });
 // @ts-expect-error - should throw due to prop mismatch
 createProvider(ComponentFour, { number: 1 });
 
-//
+// - should not throw any errors
 createProvider(ComponentFour, {});
 
-//
+// - should not throw any errors
 createProvider(ComponentFour);
 
 const ComponentFive: FunctionComponent<
@@ -74,7 +74,7 @@ const ComponentFive: FunctionComponent<
 // @ts-expect-error - should throw due to prop mismatch
 createProvider(ComponentFive, { string: "test" });
 
-//
+// - should not throw any errors
 createProvider(ComponentFive, { number: 1 });
 
 // @ts-expect-error - should throw due to missing props

@@ -4,7 +4,7 @@ on:
   push:
     tags:
       - '*'
-
+    
 jobs:
   publish:
     if: github.ref_name == github.event.repository.default_branch
