@@ -1,3 +1,15 @@
+## 0.8.0 (2024-07-15)
+
+
+### 💅 Refactors
+
+- update readme with reasons ([58ba072](https://github.com/tw050x/webframe/commit/58ba072))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.7.0 (2024-07-15)
 
 
