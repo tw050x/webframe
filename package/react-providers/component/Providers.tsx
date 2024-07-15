@@ -15,8 +15,8 @@ export interface ProvidersProps {
  * You can wrap the App component with an array of providers
  * ```typescript
  * const providers: Array<ReturnType<typeof createProvider>> = [
- *  createComponentWithProps(DataProvider),
- *  createComponentWithProps(LoggerProvider, { handler: console.info }),
+ *  createProvider(DataProvider),
+ *  createProvider(LoggerProvider, { handler: console.info }),
  * ]
  *
  * <Providers providers={providers}>
@@ -24,11 +24,13 @@ export interface ProvidersProps {
  * </Providers>
  * ```
  *
- * @prop {ReactNode} children - The children to wrap with the providers
- * @prop {FunctionComponent} providers[number].Component - The provider component
- * @prop {PropsWithChildren} providers[number].props - The props to pass to the provider component
+ * @param {Object} props - The component props
+ * @param {ReactNode} props.children - The children to wrap with the providers
+ * @param {Array<Object>} props.providers - The providers to wrap the children with
+ * @param {ComponentType<any>} props.providers[].Component - The provider component
+ * @param {PropsWithChildren<any>} props.providers[].props - The props to pass to the provider component
  *
- * @returns {ReactNode}
+ * @return {ReactNode}
  */
 const Providers: FunctionComponent<PropsWithChildren<ProvidersProps>> = ({
   children,
