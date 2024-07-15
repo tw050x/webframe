@@ -26,8 +26,10 @@ jobs:
       with:
         name: artifacts
         path: artifact/
-        
+
   publish:
+    needs: 
+    - build-package
     permissions:
       contents: read
       id-token: write
