@@ -55,6 +55,11 @@ jobs:
     - name: Install Dependencies
       run: yarn install --immutable
 
+    - name: Setup Git
+      run: |
+        git config --global user.email "rich.kielty@gmail.com"
+        git config --global user.name "Richard Kielty"
+
     - env:
         CI: true
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
