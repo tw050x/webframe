@@ -1,0 +1,38 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*'
+    
+jobs:
+  publish:
+    if: github.ref_name == github.event.repository.default_branch
+    needs: build-package
+    permissions:
+      contents: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: '0'
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.8.1'
+        registry-url: https://registry.npmjs.org/
+    - name: Download Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: artifacts
+        path: artifact/
+    - name: Install Dependencies
+      run: yarn install --immutable
+    - env:
+        CI: true
+        NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+        NPM_CONFIG_PROVENANCE: true
+      name: Run Release
+      run: node_modules/.bin/nx release publish --verbose -y
+      shell: bash

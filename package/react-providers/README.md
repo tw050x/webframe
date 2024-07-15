@@ -13,14 +13,14 @@ yarn add @webframe/react-providers
 
 ```tsx
 import React from 'react';
-import Providers, { createProviderWithProps } from '@webframe/react-providers';
+import Providers, { createProvider } from '@webframe/react-providers';
 
 const App = () => {
   return (
     <Providers
       providers={[
-        createProviderWithProps(Provider1),
-        createProviderWithProps(Provider2, { prop1: 'value1' }),
+        createProvider(Provider1),
+        createProvider(Provider2, { prop1: 'value1' }),
       ]}
     >
       <Component />
@@ -39,16 +39,16 @@ const providers = [
 ];
 ```
 
-Use the `createProviderWithProps` helper to create the object to pass to the `<Providers />` component. See below
+Use the `createProvider` helper to create the object to pass to the `<Providers />` component. See below
 
 ```tsx
 const providers = [
-  createProviderWithProps(Provider1),
-  createProviderWithProps(Provider2, { prop1: 'value1' }),
+  createProvider(Provider1),
+  createProvider(Provider2, { prop1: 'value1' }),
 ];
 ```
 
-The `createProviderWithProps` helper returns an object of the correct structure for the `<Providers />` component. It also typechecks the provider component and the props passed to it.
+The `createProvider` helper returns an object of the correct structure for the `<Providers />` component. It also typechecks the provider component and the props passed to it.
 
 You can then pass the providers array to the `<Providers />` component to wrap the component tree with the providers.
 
