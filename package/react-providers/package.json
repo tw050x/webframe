@@ -7,7 +7,7 @@
   "bugs": {
     "url": "https://github.com/tw050x/webframe/issues"
   },
-  "description": "A typesafe utility component for React context providers",
+  "description": "A typesafe utility component to simplify React context providers",
   "devDependencies": {
     "react": "^16.8.0"
   },
