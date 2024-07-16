@@ -1,3 +1,15 @@
+## 0.11.0 (2024-07-16)
+
+
+### 💅 Refactors
+
+- add executor for release publish and release version ([a22f9c7](https://github.com/tw050x/webframe/commit/a22f9c7))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.10.0 (2024-07-16)
 
 
