@@ -1,3 +1,15 @@
+## 0.12.0 (2024-07-16)
+
+
+### 💅 Refactors
+
+- add --firet-release flag for publihs step ([6f96ed1](https://github.com/tw050x/webframe/commit/6f96ed1))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.11.0 (2024-07-16)
 
 
