@@ -18,6 +18,11 @@
             "glob": "README.md",
             "input": "package/react-providers",
             "output": "."
+          },
+          {
+            "glob": ".npmrc",
+            "input": "package/react-providers",
+            "output": "."
           }
         ],
         "declarationRootDir": "package/react-providers",
