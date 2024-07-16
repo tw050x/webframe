@@ -31,11 +31,13 @@
       "executor": "@nx/eslint:lint"
     },
     "nx-release-publish": {
+      "executor": "@nx/js:release-publish",
       "options": {
         "packageRoot": "artifact/package/@webframe/react-providers"
       }
     },
     "nx-release-version": {
+      "executor": "@nx/js:release-version",
       "options": {
         "packageRoot": "artifact/package/@webframe/react-providers"
       }
