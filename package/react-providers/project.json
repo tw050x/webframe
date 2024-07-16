@@ -18,11 +18,6 @@
             "glob": "README.md",
             "input": "package/react-providers",
             "output": "."
-          },
-          {
-            "glob": ".npmrc",
-            "input": "package/react-providers",
-            "output": "."
           }
         ],
         "declarationRootDir": "package/react-providers",
@@ -34,18 +29,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
-    },
-    "nx-release-publish": {
-      "executor": "@nx/js:release-publish",
-      "options": {
-        "packageRoot": "artifact/package/@webframe/react-providers"
-      }
-    },
-    "nx-release-version": {
-      "executor": "@nx/js:release-version",
-      "options": {
-        "packageRoot": "artifact/package/@webframe/react-providers"
-      }
     },
     "unit-test": {
       "configurations": {

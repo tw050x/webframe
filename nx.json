@@ -112,6 +112,11 @@
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore"
       ]
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "artifact/package/{projectName}"
+      }
     }
   },
   "tasksRunnerOptions": {
