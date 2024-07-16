@@ -1,3 +1,15 @@
+## 0.10.0 (2024-07-16)
+
+
+### 💅 Refactors
+
+- remove unnecessary eslint rule, add verbose flag for debugging ([7eba4e7](https://github.com/tw050x/webframe/commit/7eba4e7))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.9.0 (2024-07-16)
 
 
