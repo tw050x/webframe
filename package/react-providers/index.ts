@@ -1,2 +1,2 @@
 export { default } from "./component/Providers";
-export { default as createProviderWithProps } from "./helper/create-provider";
+export { default as createProvider } from "./helper/create-provider";

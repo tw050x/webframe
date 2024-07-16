@@ -21,6 +21,8 @@
           }
         ],
         "declarationRootDir": "package/react-providers",
+        "format": ["cjs", "esm"],
+        "target": "es2015",
         "main": "package/react-providers/index.ts",
         "outputPath": "artifact/package/@webframe/react-providers",
         "tsConfig": "package/react-providers/tsconfig.lib.json"

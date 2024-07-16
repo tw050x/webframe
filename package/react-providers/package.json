@@ -11,9 +11,16 @@
   "devDependencies": {
     "react": "^16.8.0"
   },
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs"
+    }
+  },
   "homepage": "https://github.com/tw050x/webframe",
   "license": "MIT",
-  "main": "index.js",
+  "main": "index.cjs",
+  "module": "index.js",
   "name": "@webframe/react-providers",
   "peerDependencies": {
     "react": "^16.8.0"
@@ -26,6 +33,7 @@
     "type": "git",
     "url": "git+https://github.com/tw050x/webframe.git"
   },
+  "type": "module",
   "types": "index.d.ts",
   "version": "0.0.0"
 }
