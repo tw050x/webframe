@@ -1,3 +1,15 @@
+## 0.13.0 (2024-07-16)
+
+
+### 💅 Refactors
+
+- add access public to publish config ([a52c117](https://github.com/tw050x/webframe/commit/a52c117))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.12.0 (2024-07-16)
 
 
