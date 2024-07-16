@@ -20,12 +20,6 @@
       "rules": {
         "@nx/dependency-checks": "error"
       }
-    },
-    {
-      "files": ["./src/lib/log.ts"],
-      "rules": {
-        "no-fallthrough": "off"
-      }
     }
   ]
 }
