@@ -1,4 +1,9 @@
-import { ComponentProps, ComponentType, PropsWithChildren } from "react";
+import {
+  ComponentProps,
+  ComponentType,
+  PropsWithChildren,
+  ReactNode,
+} from "react";
 
 type ComponentHasNoProps<
   TComponent extends ComponentType<ComponentProps<TComponent>>,
@@ -26,6 +31,7 @@ function createProvider<
   TComponent extends
     | ComponentType<EmptyObject>
     | ComponentType<PropsWithChildren<EmptyObject>>
+    | ComponentType<{ children: ReactNode }>
     | ComponentType<undefined>,
 >(
   Component: TComponent
@@ -39,7 +45,7 @@ function createProvider<
 >(
   Component: TComponent,
   props: ComponentHasNoProps<TComponent> extends false
-    ? ComponentProps<TComponent>
+    ? Omit<ComponentProps<TComponent>, "children">
     : EmptyObject | undefined
 ): {
   Component: TComponent;

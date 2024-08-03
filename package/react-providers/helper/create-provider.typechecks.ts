@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren } from "react";
+import { FunctionComponent, PropsWithChildren, ReactNode } from "react";
 import { default as createProvider } from "./create-provider";
 
 const ComponentOne: FunctionComponent<{ number: 1 }> = () => {
@@ -82,3 +82,20 @@ createProvider(ComponentFive, {});
 
 // @ts-expect-error - should throw due to missing props
 createProvider(ComponentFive);
+
+const ComponentSix = (props: { children: ReactNode; number?: number }) => {
+  props;
+  return null;
+};
+
+// @ts-expect-error - should throw due to prop mismatch
+createProvider(ComponentSix, { string: "test" });
+
+// - should not throw any errors
+createProvider(ComponentSix, { number: 1 });
+
+// - should not throw any errors
+createProvider(ComponentSix, {});
+
+// - should not throw any errors
+createProvider(ComponentSix);
