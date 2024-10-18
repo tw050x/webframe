@@ -23,7 +23,7 @@
   "module": "index.js",
   "name": "@webframe/react-providers",
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": ">=16.8.0"
   },
   "publishConfig": {
     "access": "public",
