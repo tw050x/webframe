@@ -1,3 +1,15 @@
+## 0.15.0 (2024-10-18)
+
+
+### 💅 Refactors
+
+- allow later versions of react to satisfy the peer dependency ([be6f65a](https://github.com/tw050x/webframe/commit/be6f65a))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.14.1 (2024-08-03)
 
 
