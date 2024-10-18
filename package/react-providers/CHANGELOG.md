@@ -1,3 +1,15 @@
+## 0.14.1 (2024-08-03)
+
+
+### 🩹 Fixes
+
+- update react providers types to include children that are not set as optional ([1a898a1](https://github.com/tw050x/webframe/commit/1a898a1))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.14.0 (2024-07-16)
 
 
