@@ -40,5 +40,3 @@ export const createInactivityTimeout = ({
 
   return { clear, id, reset, start };
 };
-
-export default createInactivityTimeout;
