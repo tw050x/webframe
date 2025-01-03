@@ -7,6 +7,7 @@ export type InactivityTimeoutReturnValue = {
   clear: () => void;
   id: NodeJS.Timeout | null;
   reset: () => void;
+  start: () => void;
 };
 
 /**
