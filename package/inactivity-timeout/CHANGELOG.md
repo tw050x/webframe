@@ -1,3 +1,15 @@
+## 0.2.0 (2025-01-03)
+
+
+### 💅 Refactors
+
+- remove default export in package ([2adcc73](https://github.com/tw050x/webframe/commit/2adcc73))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.1.1 (2025-01-03)
 
 
