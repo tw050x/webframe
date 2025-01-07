@@ -1,0 +1,33 @@
+{
+  "author": {
+    "email": "rich.kielty@gmail.com",
+    "name": "Richard Kielty",
+    "url": "https://github.com/tw050x"
+  },
+  "bugs": {
+    "url": "https://github.com/tw050x/webframe/issues"
+  },
+  "description": "A utility function for asserting an unreachable code path",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs"
+    }
+  },
+  "homepage": "https://github.com/tw050x/webframe",
+  "license": "MIT",
+  "main": "index.cjs",
+  "module": "index.js",
+  "name": "@webframe/assert-unreachable",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw050x/webframe.git"
+  },
+  "type": "module",
+  "types": "index.d.ts",
+  "version": "0.0.0"
+}
