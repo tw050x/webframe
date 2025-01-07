@@ -22,6 +22,9 @@
       ],
       "@webframe/react-providers": [
         "package/react-providers"
+      ],
+      "@webframe/write-message-to-file-array": [
+        "package/write-message-to-file-array"
       ]
     },
     "rootDir": ".",

@@ -1,0 +1,48 @@
+{
+  "name": "@webframe/write-message-to-file-array",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "package/write-message-to-file-array",
+  "tags": [],
+  "targets": {
+    "build-package": {
+      "configurations": {
+        "production": {
+          "minify": true
+        }
+      },
+      "executor": "@nx/esbuild:esbuild",
+      "options": {
+        "assets": [
+          {
+            "glob": "README.md",
+            "input": "package/write-message-to-file-array",
+            "output": "."
+          }
+        ],
+        "declarationRootDir": "package/write-message-to-file-array",
+        "format": ["cjs", "esm"],
+        "target": "es2015",
+        "main": "package/write-message-to-file-array/index.ts",
+        "outputPath": "artifact/package/@webframe/write-message-to-file-array",
+        "tsConfig": "package/write-message-to-file-array/tsconfig.lib.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "unit-test": {
+      "configurations": {
+        "serve-coverage": {
+          "codeCoverage": true
+        }
+      },
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "package/write-message-to-file-array/jest.config.ts"
+      },
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"]
+    }
+  }
+}
