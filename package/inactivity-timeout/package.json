@@ -8,9 +8,6 @@
     "url": "https://github.com/tw050x/webframe/issues"
   },
   "description": "A utility function for reacting to input inactivity",
-  "devDependencies": {
-    "react": "^16.8.0"
-  },
   "exports": {
     ".": {
       "import": "./index.js",
@@ -22,9 +19,6 @@
   "main": "index.cjs",
   "module": "index.js",
   "name": "@webframe/inactivity-timeout",
-  "peerDependencies": {
-    "react": ">=16.8.0"
-  },
   "publishConfig": {
     "access": "public",
     "provenance": true
