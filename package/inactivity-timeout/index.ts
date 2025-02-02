@@ -29,6 +29,7 @@ export const createInactivityTimeout = ({
     if (inactivityTimeout.id === null)
       throw new Error("Timeout already cleared");
     clearTimeout(inactivityTimeout.id);
+    inactivityTimeout.id = null;
   };
 
   const reset = () => {
