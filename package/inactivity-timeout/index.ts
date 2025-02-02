@@ -21,22 +21,32 @@ export const createInactivityTimeout = ({
   onTimeout,
   timeoutInMilliseconds = 30_000,
 }: InactivityTimeoutOptions) => {
-  let id: InactivityTimeoutReturnValue["id"] = null;
+  const inactivityTimeout: Partial<InactivityTimeoutReturnValue> = {
+    id: null,
+  };
 
   const clear = () => {
-    if (id === null) throw new Error("Timeout already cleared");
-    clearTimeout(id);
+    if (inactivityTimeout.id === null)
+      throw new Error("Timeout already cleared");
+    clearTimeout(inactivityTimeout.id);
   };
 
   const reset = () => {
-    if (id === null) throw new Error("Timeout already cleared");
+    if (inactivityTimeout.id === null)
+      throw new Error("Timeout already cleared");
     clear();
+    start();
   };
 
   const start = () => {
-    if (id === null) id = setTimeout(onTimeout, timeoutInMilliseconds);
+    if (inactivityTimeout.id === null)
+      inactivityTimeout.id = setTimeout(onTimeout, timeoutInMilliseconds);
     else throw new Error("Timeout already started");
   };
 
-  return { clear, id, reset, start };
+  inactivityTimeout.clear = clear;
+  inactivityTimeout.reset = reset;
+  inactivityTimeout.start = start;
+
+  return inactivityTimeout as InactivityTimeoutReturnValue;
 };
