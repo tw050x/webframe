@@ -1,3 +1,15 @@
+## 0.3.1 (2025-02-02)
+
+
+### 🩹 Fixes
+
+- **inactivity-timout:** bug in where resetting would only clear, bug where the id was always null ([796c265](https://github.com/tw050x/webframe/commit/796c265))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.3.0 (2025-01-31)
 
 
