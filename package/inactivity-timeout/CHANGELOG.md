@@ -1,3 +1,15 @@
+## 0.3.2 (2025-02-02)
+
+
+### 🩹 Fixes
+
+- **inactivity-timout:** add missing null assignment of id when clearing timeout ([2814a11](https://github.com/tw050x/webframe/commit/2814a11))
+
+
+### ❤️  Thank You
+
+- Richard Kielty
+
 ## 0.3.1 (2025-02-02)
 
 
