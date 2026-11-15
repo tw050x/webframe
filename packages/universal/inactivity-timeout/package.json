@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tw050x/webframe.git",
-    "directory": "packages/portable/inactivity-timeout"
+    "directory": "packages/universal/inactivity-timeout"
   },
   "homepage": "https://webframe.tw050x.net/packages/inactivity-timeout",
   "publishConfig": {

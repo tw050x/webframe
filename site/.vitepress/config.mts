@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // by where they run: the sidebar's groups, as the folders under packages/ are
 const packages = {
   'Node': ['core', 'use-cors-headers', 'use-log-request', 'use-pagination-query-parameters', 'config', 'logger', 'encrypt', 'healthcheck'],
-  'Portable': ['utils', 'assert-unreachable', 'inactivity-timeout'],
+  'Universal': ['utils', 'assert-unreachable', 'inactivity-timeout'],
   'React': ['react-providers'],
 }
 

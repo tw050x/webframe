@@ -1,7 +1,7 @@
 {
-  "name": "@webframe/utils",
-  "version": "0.1.0",
-  "description": "Small helpers for any JavaScript runtime.",
+  "name": "@webframe/assert-unreachable",
+  "version": "0.3.0",
+  "description": "Marks code that can't be reached: a compile error if it can, a throw if it is.",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -14,15 +14,12 @@
     "dist",
     "src"
   ],
-  "dependencies": {
-    "@webframe/assert-unreachable": "^0.3.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tw050x/webframe.git",
-    "directory": "packages/portable/utils"
+    "directory": "packages/universal/assert-unreachable"
   },
-  "homepage": "https://webframe.tw050x.net/packages/utils",
+  "homepage": "https://webframe.tw050x.net/packages/assert-unreachable",
   "publishConfig": {
     "access": "public"
   }

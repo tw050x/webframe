@@ -7,7 +7,7 @@
   "type": "module",
   "workspaces": [
     "packages/node/*",
-    "packages/portable/*",
+    "packages/universal/*",
     "packages/react/*"
   ],
   "scripts": {

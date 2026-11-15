@@ -42,7 +42,7 @@ They're grouped by where they run, in `packages/<group>/<name>`.
 | `@webframe/encrypt` | `encrypt`, `decrypt`, `generateKey` (AES-256-GCM) |
 | `@webframe/healthcheck` | `defineHealthcheck`: a status file for container healthchecks |
 
-**Portable** (`packages/portable`): plain JavaScript for any runtime, Node, browsers, workers, Bun or
+**Universal** (`packages/universal`): plain JavaScript for any runtime, Node, browsers, workers, Bun or
 Deno. They're built without Node's types, so one that reaches for Node doesn't compile.
 
 | Package | What it is |
@@ -69,6 +69,6 @@ Deno. They're built without Node's types, so one that reaches for Node doesn't c
 
 ## Layout
 
-- `packages/<group>/<name>` — `@webframe/<name>` (groups `node`, `portable`, `react`), its source in `src`, built to `dist`
+- `packages/<group>/<name>` — `@webframe/<name>` (groups `node`, `universal`, `react`), its source in `src`, built to `dist`
 - `test/` — tests across the packages
 - `site/` — the docs site, webframe.tw050x.net (VitePress; `npm run docs` serves it, `npm run docs:build` builds it)
