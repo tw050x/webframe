@@ -10,7 +10,7 @@ export type DeepPartial<T> = {
 };
 
 /**
- * The properties OutputContext adds to InputContext, including those added inside nested objects.
+ * OutputContext's decorations of InputContext: the properties it adds, including inside nested objects.
  */
 export type NewPropertiesOnly<InputContext, OutputContext> = {
   [K in keyof OutputContext as K extends keyof InputContext

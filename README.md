@@ -22,7 +22,7 @@ const listUsers = defineMiddleware([
 await defineServer({ port: 3000, routes: { "GET /users": listUsers } }).listen();
 ```
 
-Each middleware is given the context the ones before it built, and may add to it, send the
+Each middleware is given the context the ones before it decorated, and may decorate it further, send the
 response (which ends the chain), or both. If none responds, or one throws, a 500 is sent.
 
 ## Packages

@@ -53,7 +53,7 @@ test('a trailing slash redirect never leaves the site', async (t) => {
   assert.equal(response.headers.get('location'), '/evil.example');
 });
 
-test('middleware: each adds to the context, and the chain stops once one responds', async (t) => {
+test('middleware: each decorates the context, and the chain stops once one responds', async (t) => {
   let reachedAfterSend = false;
   const { request, close } = await serve({
     'GET /chain': defineMiddleware([

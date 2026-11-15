@@ -1,8 +1,8 @@
 import type { NewPropertiesOnly, RouteHandler, ServiceRequestContext } from "./types.js";
 
 /**
- * A step in a request's handling. It's given the context the steps before it built, and may add
- * to it (OutputContext says what it adds), send the response (which ends the chain), or both.
+ * A step in a request's handling. It's given the context the steps before it decorated, and may
+ * decorate it further (OutputContext says with what), send the response (which ends the chain), or both.
  */
 export type Middleware<
   InputContext extends ServiceRequestContext = ServiceRequestContext,
@@ -11,19 +11,19 @@ export type Middleware<
   context: InputContext & Partial<NewPropertiesOnly<InputContext, OutputContext>>
 ) => void | Promise<void>) & {
   /**
-   * Type-only, never set: what the middleware adds, where the chain can infer it. It can't be
+   * Type-only, never set: the middleware's decorations, where the chain can infer them. They can't be
    * inferred from the parameter's type, which only shows the new properties, as optional.
    */
-  readonly [addsToContext]?: OutputContext;
+  readonly [decorations]?: OutputContext;
 };
 
-declare const addsToContext: unique symbol;
+declare const decorations: unique symbol;
 
 /** How many middleware in a chain are typed; any after them still run. */
 export const TYPED_CHAIN_LENGTH = 30;
 
 /**
- * What middleware past the typed ones may add to the context: anything, untyped.
+ * How middleware past the typed ones may decorate the context: with anything, untyped.
  */
 type Untyped = Record<string, any>;
 
@@ -1181,8 +1181,8 @@ export function defineMiddleware<
 // </generated>
 
 /**
- * Makes a route from a chain of middleware, run in order, each given what the ones before added
- * to the context. The chain stops once one sends a response. If none does, or one throws, a 500
+ * Makes a route from a chain of middleware, run in order, each given the context as the ones
+ * before decorated it. The chain stops once one sends a response. If none does, or one throws, a 500
  * is sent and the error logged.
  *
  * @example

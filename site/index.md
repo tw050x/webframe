@@ -8,7 +8,7 @@ hero:
     dark: /icon-dark.svg
     alt: ''
   text: Typed middleware for Node's HTTP server
-  tagline: Build each route as a chain of small steps. Each step adds to the request's context, and TypeScript knows what every step after it can use.
+  tagline: Build each route as a chain of small steps. Each step decorates the request's context, and TypeScript knows what every step after it can use.
   actions:
     - theme: brand
       text: Get started
@@ -19,7 +19,7 @@ hero:
 
 features:
   - title: Context that's typed as it grows
-    details: A middleware says what it adds to the context. The ones after it see that as typed properties, and using something nothing has added is a compile error.
+    details: A middleware says how it decorates the context. The ones after it see its decorations as typed properties, and using something no middleware has decorated the context with is a compile error.
   - title: Stops when it has answered
     details: The chain ends as soon as a step sends a response, so a check that fails just responds. If nothing responds, or a step throws, the client gets a 500 and the error is logged.
   - title: Node's own server

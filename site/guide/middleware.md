@@ -12,11 +12,12 @@ const route = defineMiddleware([
 ])
 ```
 
-Each middleware can do any of three things:
+A middleware can do two things to the request, and may do both:
 
-- **add to the context** for the middleware after it (`context.user = …`);
-- **send the response**, which ends the chain;
-- **neither**, such as only setting headers or logging.
+- **decorate the context**: add to it what the middleware after it need (`context.user = …`);
+- **send the response**, which ends the chain.
+
+`useUser` above decorates the context with `user`, and the last step sends the response. Some do their own work and pass the request on untouched: `useLogRequest` only logs it.
 
 ## The context
 
@@ -28,11 +29,11 @@ Every chain starts with the same three properties:
 | `serverResponse` | The response: Node's `ServerResponse` with [send methods](./requests-and-responses#sending-a-response) added. |
 | `logger` | The server's [logger](./errors-and-logging). |
 
-Each middleware can add to it, and everything after it in the chain can use what it added.
+Adding to the context is **decoration**. Each middleware can decorate it, and everything after it in the chain can use its decorations: the properties it added.
 
 ## Writing middleware
 
-A middleware's type says what it needs and what it adds:
+A middleware's type says what it needs and how it decorates the context:
 
 ```ts
 import type { Middleware, ServiceRequestContext } from '@webframe/core'
@@ -51,7 +52,7 @@ export const useUser: Middleware<ServiceRequestContext, WithUser> = async (conte
 }
 ```
 
-`Middleware<Input, Output>` takes the context it needs (`Input`) and the context it leaves behind (`Output`). Inside it, the properties it adds are optional until it sets them.
+`Middleware<Input, Output>` takes the context it needs (`Input`) and the context it leaves behind (`Output`). Inside it, its decorations are optional until it sets them.
 
 Middleware that needs options is usually a **factory**, a function that returns the middleware. All of webframe's own middleware is written this way, and their names start with `use`:
 
@@ -75,19 +76,19 @@ A factory runs once, when the route is defined, so it's the place to check its o
 
 ```ts
 defineMiddleware([
-  useUser,                                  // adds user
-  usePaginationQueryParameters({ … }),      // adds pagination
+  useUser,                                  // decorates it with user
+  usePaginationQueryParameters({ … }),      // decorates it with pagination
   async ({ user, pagination }) => { … },    // both are typed here
 ])
 
 defineMiddleware([
-  async ({ user }) => { … },                // error: nothing added user
+  async ({ user }) => { … },                // error: nothing decorated it with user
 ])
 ```
 
 ### Long chains
 
-The first 30 middleware in a chain are typed. A chain can be longer: the ones after the 30th still run, and they see everything the first 30 added, but anything they add themselves is untyped.
+The first 30 middleware in a chain are typed. A chain can be longer: the ones after the 30th still run, and they see the first 30's decorations, but their own decorations are untyped.
 
 ## Stopping the chain
 

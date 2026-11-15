@@ -39,7 +39,7 @@ The options are checked when the middleware is made: the defaults must be whole 
 
 ## Context
 
-It adds `pagination: { pageIndex: number; pageSize: number }`. The type of the context it leaves is exported as `UsePaginationQueryParametersContext`, for middleware that needs it:
+It decorates the context with `pagination: { pageIndex: number; pageSize: number }`. The type of the context it leaves is exported as `UsePaginationQueryParametersContext`, for middleware that needs it:
 
 ```ts
 import type { Middleware } from '@webframe/core'
