@@ -14,7 +14,7 @@ name: Release
 # set in the package's settings on npmjs.com: repository tw050x/webframe, workflow release.yml),
 # which GitHub proves with the job's OIDC token, and npm records the build's provenance. A
 # package has to exist before it can trust a workflow, so a new package's first version is
-# published by hand (npm publish --workspace <folder>), then trusted.
+# published by hand (scripts/publish-by-hand.sh <code>), then trusted.
 on:
   workflow_dispatch:
     inputs:
