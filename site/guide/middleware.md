@@ -12,12 +12,13 @@ const route = defineMiddleware([
 ])
 ```
 
-A middleware can do two things to the request, and may do both:
+A middleware can do any of three things, and often more than one:
 
 - **decorate the context**: add to it what the middleware after it need (`context.user = …`);
+- **perform a side effect**: log the request, set a header, record a metric, without adding to the context;
 - **send the response**, which ends the chain.
 
-`useUser` above decorates the context with `user`, and the last step sends the response. Some do their own work and pass the request on untouched: `useLogRequest` only logs it.
+Above, `useLogRequest` performs a side effect, `useUser` decorates the context with `user`, and the last step sends the response.
 
 ## The context
 
