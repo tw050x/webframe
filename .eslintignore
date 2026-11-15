@@ -1,8 +1,0 @@
-.nx
-.secrets
-.vscode
-.yarn
-artifact
-coverage
-node_modules
-tmp

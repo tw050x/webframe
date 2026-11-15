@@ -1,14 +1,6 @@
-
-# Artifacts directories
-artifact/
-
-# Node directories
 node_modules/
-
-# NX directories and files
-.nx/installation
-.nx/cache
-.nx/workspace-data
-
-# Testing & Coverage
-coverage/
+dist/
+.DS_Store
+*.tsbuildinfo
+site/.vitepress/cache/
+site/.vitepress/dist/

@@ -1,46 +1,18 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "importHelpers": true,
-    "lib": [
-      "dom",
-      "esnext"
-    ],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "paths": {
-      "@webframe/assert-unreachable": [
-        "package/assert-unreachable"
-      ],
-      "@webframe/inactivity-timeout": [
-        "package/inactivity-timeout"
-      ],
-      "@webframe/react-providers": [
-        "package/react-providers"
-      ]
-    },
-    "rootDir": ".",
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
     "strict": true,
-    "target": "es2015"
-  },
-  "exclude": [
-    ".github",
-    ".husky",
-    ".nx",
-    ".vscode",
-    ".yarn",
-    "artifact/",
-    "coverage/",
-    "node_modules/",
-    "script/",
-    "tmp/"
-  ]
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "composite": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true
+  }
 }

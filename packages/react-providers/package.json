@@ -1,0 +1,20 @@
+{
+  "name": "@webframe/react-providers",
+  "version": "0.17.0",
+  "description": "Nest React context providers from a list, with each provider's props type-checked.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "src"],
+  "peerDependencies": {
+    "react": ">=16.14.0"
+  },
+  "repository": { "type": "git", "url": "git+https://github.com/tw050x/webframe.git", "directory": "packages/react-providers" },
+  "homepage": "https://webframe.tw050x.net/packages/react-providers",
+  "publishConfig": { "access": "public" }
+}

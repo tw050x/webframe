@@ -1,0 +1,56 @@
+/* The family's blue, as the apps' selection and pills. */
+:root {
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #3b82f6;
+  --vp-c-brand-3: #1d4ed8;
+  --vp-c-brand-soft: rgba(37, 99, 235, 0.14);
+}
+.dark {
+  --vp-c-brand-1: #7aa7ff;
+  --vp-c-brand-2: #5b8ff9;
+  --vp-c-brand-3: #3b74f0;
+  --vp-c-brand-soft: rgba(91, 143, 249, 0.16);
+}
+
+/* The name, as the logo's lockup: webframe in Syne, beta a label beside it. */
+:root {
+  --wf-beta: #b45309;
+}
+.dark {
+  --wf-beta: #fbbf24;
+}
+.wf-name {
+  font-family: 'Syne', var(--vp-font-family-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.wf-beta {
+  font-family: 'JetBrains Mono', var(--vp-font-family-mono);
+  font-weight: 400;
+  font-size: 0.42em;
+  letter-spacing: 0;
+  margin-left: 0.5em;
+  color: var(--wf-beta);
+  -webkit-text-fill-color: var(--wf-beta);
+}
+.VPNavBarTitle .wf-beta {
+  font-size: 0.75em;
+}
+.VPNavBarTitle .wf-name {
+  font-size: 1.15em;
+}
+/* the hero's name in the page's text colour, not the theme's gradient */
+.VPHero .name.clip {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--vp-c-text-1);
+  -webkit-text-fill-color: var(--vp-c-text-1);
+}
+.VPHero .name .wf-beta {
+  vertical-align: 0.15em;
+}
+.VPHero .image-src {
+  max-width: 240px;
+  max-height: 240px;
+}
