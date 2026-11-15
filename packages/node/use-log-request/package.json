@@ -1,0 +1,32 @@
+{
+  "name": "@webframe/use-log-request",
+  "version": "0.1.0",
+  "description": "Request logging middleware for webframe.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "@webframe/core": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw050x/webframe.git",
+    "directory": "packages/node/use-log-request"
+  },
+  "homepage": "https://webframe.tw050x.net/packages/use-log-request",
+  "publishConfig": {
+    "access": "public"
+  }
+}

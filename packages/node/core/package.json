@@ -1,0 +1,30 @@
+{
+  "name": "@webframe/core",
+  "version": "0.1.0",
+  "description": "Typed middleware chains on Node's HTTP server: the server, its router and the context each middleware adds to.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {},
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw050x/webframe.git",
+    "directory": "packages/node/core"
+  },
+  "homepage": "https://webframe.tw050x.net/packages/core",
+  "publishConfig": {
+    "access": "public"
+  }
+}

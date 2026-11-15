@@ -1,6 +1,6 @@
 # @webframe/utils
 
-Small helpers used across webframe services.
+Small helpers for any JavaScript runtime: Node, browsers, workers.
 
 ```sh
 npm install @webframe/utils

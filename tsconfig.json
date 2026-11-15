@@ -1,18 +1,18 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/core" },
-    { "path": "packages/config" },
-    { "path": "packages/logger" },
-    { "path": "packages/encrypt" },
-    { "path": "packages/healthcheck" },
-    { "path": "packages/assert-unreachable" },
-    { "path": "packages/inactivity-timeout" },
-    { "path": "packages/react-providers" },
-    { "path": "packages/utils" },
-    { "path": "packages/use-cors-headers" },
-    { "path": "packages/use-log-request" },
-    { "path": "packages/use-pagination-query-parameters" },
+    { "path": "packages/node/core" },
+    { "path": "packages/node/config" },
+    { "path": "packages/node/logger" },
+    { "path": "packages/node/encrypt" },
+    { "path": "packages/node/healthcheck" },
+    { "path": "packages/portable/assert-unreachable" },
+    { "path": "packages/portable/inactivity-timeout" },
+    { "path": "packages/react/react-providers" },
+    { "path": "packages/portable/utils" },
+    { "path": "packages/node/use-cors-headers" },
+    { "path": "packages/node/use-log-request" },
+    { "path": "packages/node/use-pagination-query-parameters" },
     { "path": "test/types" }
   ]
 }

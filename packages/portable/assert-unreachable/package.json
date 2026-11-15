@@ -1,0 +1,26 @@
+{
+  "name": "@webframe/assert-unreachable",
+  "version": "0.3.0",
+  "description": "Marks code that can't be reached: a compile error if it can, a throw if it is.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw050x/webframe.git",
+    "directory": "packages/portable/assert-unreachable"
+  },
+  "homepage": "https://webframe.tw050x.net/packages/assert-unreachable",
+  "publishConfig": {
+    "access": "public"
+  }
+}

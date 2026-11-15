@@ -2,5 +2,5 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": { "noEmit": true, "composite": false, "declaration": false, "declarationMap": false, "sourceMap": false },
   "include": ["*.ts"],
-  "references": [{ "path": "../../packages/core" }, { "path": "../../packages/use-pagination-query-parameters" }, { "path": "../../packages/use-cors-headers" }, { "path": "../../packages/healthcheck" }, { "path": "../../packages/react-providers" }]
+  "references": [{ "path": "../../packages/node/core" }, { "path": "../../packages/node/use-pagination-query-parameters" }, { "path": "../../packages/node/use-cors-headers" }, { "path": "../../packages/node/healthcheck" }, { "path": "../../packages/react/react-providers" }]
 }

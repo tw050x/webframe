@@ -27,6 +27,10 @@ response (which ends the chain), or both. If none responds, or one throws, a 500
 
 ## Packages
 
+They're grouped by where they run, in `packages/<group>/<name>`.
+
+**Node** (`packages/node`): servers and workers.
+
 | Package | What it is |
 |---|---|
 | `@webframe/core` | `defineServer` (HTTP or HTTPS, mutual TLS), the router (`"GET /users/:id"`), `defineMiddleware`, the request and response classes, and `defineWorker` with its job sources |
@@ -37,15 +41,26 @@ response (which ends the chain), or both. If none responds, or one throws, a 500
 | `@webframe/logger` | `createLogger`: winston, JSON to files and readable lines to the console |
 | `@webframe/encrypt` | `encrypt`, `decrypt`, `generateKey` (AES-256-GCM) |
 | `@webframe/healthcheck` | `defineHealthcheck`: a status file for container healthchecks |
+
+**Portable** (`packages/portable`): plain JavaScript for any runtime, Node, browsers, workers, Bun or
+Deno. They're built without Node's types, so one that reaches for Node doesn't compile.
+
+| Package | What it is |
+|---|---|
 | `@webframe/utils` | `assertUnreachable` (from `@webframe/assert-unreachable`), `normaliseEmailAddress`, `updateJSON` |
-| `@webframe/assert-unreachable` | `assertUnreachable`, for Node and browsers |
-| `@webframe/inactivity-timeout` | `createInactivityTimeout`, for Node and browsers |
-| `@webframe/react-providers` | `<Providers />` and `createProvider`, for React |
+| `@webframe/assert-unreachable` | `assertUnreachable` |
+| `@webframe/inactivity-timeout` | `createInactivityTimeout` |
+
+**React** (`packages/react`): React as a peer dependency.
+
+| Package | What it is |
+|---|---|
+| `@webframe/react-providers` | `<Providers />` and `createProvider` |
 
 ## Working on it
 
 - `npm run middleware-types` writes `defineMiddleware`'s overloads (typed to `TYPED_CHAIN_LENGTH`,
-  30) into `packages/core/src/middleware.ts`; a test fails if they're out of date.
+  30) into `packages/node/core/src/middleware.ts`; a test fails if they're out of date.
 - `npm run build` builds every package with `tsc --build` (TypeScript 5.9, project references).
 - `npm test` builds, then runs `node --test` on `test/`. `test/types/` is checked by the build:
   it holds what the chain's types must accept and refuse.
@@ -54,6 +69,6 @@ response (which ends the chain), or both. If none responds, or one throws, a 500
 
 ## Layout
 
-- `packages/<name>` — `@webframe/<name>`, its source in `src`, built to `dist`
+- `packages/<group>/<name>` — `@webframe/<name>` (groups `node`, `portable`, `react`), its source in `src`, built to `dist`
 - `test/` — tests across the packages
 - `site/` — the docs site, webframe.tw050x.net (VitePress; `npm run docs` serves it, `npm run docs:build` builds it)

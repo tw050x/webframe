@@ -1,0 +1,29 @@
+{
+  "name": "@webframe/utils",
+  "version": "0.1.0",
+  "description": "Small helpers for any JavaScript runtime.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "@webframe/assert-unreachable": "^0.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw050x/webframe.git",
+    "directory": "packages/portable/utils"
+  },
+  "homepage": "https://webframe.tw050x.net/packages/utils",
+  "publishConfig": {
+    "access": "public"
+  }
+}

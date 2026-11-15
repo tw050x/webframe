@@ -1,19 +1,11 @@
 import { defineConfig } from 'vitepress'
 
-const packages = [
-  'core',
-  'use-cors-headers',
-  'use-log-request',
-  'use-pagination-query-parameters',
-  'config',
-  'logger',
-  'encrypt',
-  'healthcheck',
-  'utils',
-  'assert-unreachable',
-  'inactivity-timeout',
-  'react-providers',
-]
+// by where they run: the sidebar's groups, as the folders under packages/ are
+const packages = {
+  'Node': ['core', 'use-cors-headers', 'use-log-request', 'use-pagination-query-parameters', 'config', 'logger', 'encrypt', 'healthcheck'],
+  'Portable': ['utils', 'assert-unreachable', 'inactivity-timeout'],
+  'React': ['react-providers'],
+}
 
 export default defineConfig({
   title: 'webframe beta',
@@ -48,10 +40,10 @@ export default defineConfig({
           { text: 'Workers', link: '/guide/workers' },
         ],
       },
-      {
-        text: 'Packages',
-        items: packages.map((name) => ({ text: `@webframe/${name}`, link: `/packages/${name}` })),
-      },
+      ...Object.entries(packages).map(([group, names]) => ({
+        text: `Packages: ${group}`,
+        items: names.map((name) => ({ text: `@webframe/${name}`, link: `/packages/${name}` })),
+      })),
     ],
     socialLinks: [{ icon: 'github', link: 'https://github.com/tw050x/webframe' }],
     search: { provider: 'local' },

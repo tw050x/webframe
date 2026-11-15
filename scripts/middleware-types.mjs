@@ -1,9 +1,9 @@
-// Writes defineMiddleware's overloads into packages/core/src/middleware.ts, between its
+// Writes defineMiddleware's overloads into packages/node/core/src/middleware.ts, between its
 // <generated> markers: one for each length of chain up to TYPED_CHAIN_LENGTH, and one for longer
 // chains. `--check` only says whether the file is up to date (the tests run it).
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const file = new URL('../packages/core/src/middleware.ts', import.meta.url);
+const file = new URL('../packages/node/core/src/middleware.ts', import.meta.url);
 const source = readFileSync(file, 'utf8');
 const length = Number(/export const TYPED_CHAIN_LENGTH = (\d+);/.exec(source)?.[1]);
 if (!length) throw new Error('TYPED_CHAIN_LENGTH not found in middleware.ts');

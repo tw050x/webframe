@@ -1,0 +1,32 @@
+{
+  "name": "@webframe/use-cors-headers",
+  "version": "0.1.0",
+  "description": "CORS headers middleware for webframe.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "@webframe/core": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw050x/webframe.git",
+    "directory": "packages/node/use-cors-headers"
+  },
+  "homepage": "https://webframe.tw050x.net/packages/use-cors-headers",
+  "publishConfig": {
+    "access": "public"
+  }
+}

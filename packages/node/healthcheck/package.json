@@ -1,0 +1,30 @@
+{
+  "name": "@webframe/healthcheck",
+  "version": "0.1.0",
+  "description": "A file-based healthcheck for services run in containers.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {},
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw050x/webframe.git",
+    "directory": "packages/node/healthcheck"
+  },
+  "homepage": "https://webframe.tw050x.net/packages/healthcheck",
+  "publishConfig": {
+    "access": "public"
+  }
+}

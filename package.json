@@ -6,7 +6,9 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/node/*",
+    "packages/portable/*",
+    "packages/react/*"
   ],
   "scripts": {
     "build": "tsc --build",
