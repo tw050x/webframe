@@ -18,7 +18,8 @@
     "docs": "vitepress dev site",
     "docs:build": "vitepress build site",
     "docs:preview": "vitepress preview site",
-    "middleware-types": "node scripts/middleware-types.mjs"
+    "middleware-types": "node scripts/middleware-types.mjs",
+    "readmes": "node scripts/readmes.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",

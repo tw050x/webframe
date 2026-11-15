@@ -192,3 +192,8 @@ test("defineMiddleware's generated overloads are up to date", async () => {
   const { execFileSync } = await import('node:child_process');
   execFileSync(process.execPath, ['scripts/middleware-types.mjs', '--check']);
 });
+
+test("the packages' READMEs are up to date with their docs pages", async () => {
+  const { execFileSync } = await import('node:child_process');
+  execFileSync(process.execPath, ['scripts/readmes.mjs', '--check']);
+});

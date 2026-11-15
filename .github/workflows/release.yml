@@ -1,0 +1,110 @@
+name: Release
+
+# Run by hand (Actions → Release → Run workflow) on master. It goes ahead once the Prerequisites
+# workflow has passed on the same commit; if it's still running, this waits.
+#
+# Each package has its own version. Every package whose version in its package.json isn't on
+# npm yet is published, and tagged <name>@<version> (as @webframe/core@0.2.0); the rest are
+# left alone. So a release is: bump the versions of the packages that changed, push, run this.
+#
+# Without "publish" ticked it's a dry run: it builds and packs what it would publish, and
+# publishes and tags nothing.
+#
+# npm needs no secret: each package trusts this workflow to publish it (trusted publishing,
+# set in the package's settings on npmjs.com: repository tw050x/webframe, workflow release.yml),
+# which GitHub proves with the job's OIDC token, and npm records the build's provenance. A
+# package has to exist before it can trust a workflow, so a new package's first version is
+# published by hand (npm publish --workspace <folder>), then trusted.
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish (unticked is a dry run)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  prerequisites:
+    name: Wait for Prerequisites
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check for a successful Prerequisites run on this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          while true; do
+            run=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow prerequisites.yml --commit "$GITHUB_SHA" \
+              --limit 1 --json status,conclusion,url --jq '.[0] // empty')
+            if [ -z "$run" ]; then
+              echo "No Prerequisites run for $GITHUB_SHA yet. Waiting…"
+            else
+              status=$(jq -r .status <<<"$run")
+              conclusion=$(jq -r .conclusion <<<"$run")
+              url=$(jq -r .url <<<"$run")
+              if [ "$status" = completed ]; then
+                if [ "$conclusion" = success ]; then
+                  echo "Prerequisites passed: $url"
+                  exit 0
+                fi
+                echo "::error::Prerequisites did not pass ($conclusion): $url"
+                exit 1
+              fi
+              echo "Prerequisites is $status: $url. Waiting…"
+            fi
+            sleep 20
+          done
+
+  release:
+    name: ${{ inputs.publish && 'Publish' || 'Dry run' }}
+    needs: prerequisites
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # the tags
+      id-token: write # trusted publishing and provenance
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      # trusted publishing needs npm 11.5.1 or later; Node 22 comes with 10
+      - run: npm install --global npm@11
+      - run: npm ci
+      - run: npm run build
+      - name: Publish the packages whose versions aren't on npm
+        env:
+          PUBLISH: ${{ inputs.publish }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          released=0
+          for dir in packages/*/*/; do
+            name=$(node -p "require('./${dir}package.json').name")
+            version=$(node -p "require('./${dir}package.json').version")
+            if npm view "$name@$version" version >/dev/null 2>&1; then
+              echo "$name@$version is on npm already"
+              continue
+            fi
+            if ! npm view "$name" name >/dev/null 2>&1; then
+              echo "::error::$name isn't on npm yet: publish its first version by hand, then set up trusted publishing for it."
+              exit 1
+            fi
+            released=$((released + 1))
+            if [ "$PUBLISH" = true ]; then
+              echo "Publishing $name@$version"
+              npm publish --workspace "$dir" --provenance
+              git tag "$name@$version"
+              git push origin "$name@$version"
+            else
+              echo "Would publish $name@$version:"
+              npm publish --workspace "$dir" --dry-run
+            fi
+          done
+          echo "$released package(s) $([ "$PUBLISH" = true ] && echo published || echo 'to publish')."
